@@ -73,7 +73,7 @@ async function upload() {
 
    await S3FileUpload
     .uploadFile(file,config)
-    .then(res => setdata((arr)=>[...arr,res])).then((res)=>{setload(false)}).then(()=>setTimeout(()=>setFile((arr)=>arr.splice(i,1),2000)))
+    .then(res => setdata((arr)=>[...arr,res])).then((res)=>{setload(false)}).then(()=>setFile((arr)=>arr.splice(i,1)))
     .catch(err => console.error(err))
        
         
