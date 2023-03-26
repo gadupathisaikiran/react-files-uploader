@@ -70,7 +70,6 @@ async function upload() {
 
     setload(true)
 
-    if(File.length>1){
     File.map((async(file,i)=>{
   
   
@@ -81,25 +80,13 @@ async function upload() {
     
        
   }
-  ))}
-
-
-  if(File.length==1){
-    await S3FileUpload
-    .uploadFile(File[0],config)
-    .then(res => setdata((arr)=>[...arr,res])).then(()=>{setload(false)}).then(()=>setFile((arr)=>arr.splice(0,1)))
-    .catch(err => console.error(err))
-    
-     setFile((arr)=>arr.splice(0,1))
-
+  
+  
+  
+  
+  
+  ))
   }
-  
-  
-  
-  
-  
-  }
-  
   catch(e){
     console.log(e)
   }
