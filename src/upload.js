@@ -91,7 +91,7 @@ async function upload() {
     <div style={{ height: "50%" }}>
 
 
-<Confetti recycle={false}/>:""
+
 
     {
       data.length>0&&File.length==0?<Confetti recycle={false}/>:""
