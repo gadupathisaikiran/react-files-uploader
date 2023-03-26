@@ -21,6 +21,7 @@ function DragDrop() {
   const [load,setload]=useState(false)
 
   const [count,setCount]=useState(0)
+  const [error,seterror]=useState(false)
 
   const config = {
     bucketName: 'react-uploder',
@@ -72,10 +73,23 @@ async function upload() {
 
     File.map((async(file,i)=>{
   
-  
+      if(file.type!="video/mp4"){
+      
+        alert("not a valid input")
+
+        setload(false)
+
+        setFile([])
+
+        
+        
+         return
+
+      }
+
      await S3FileUpload
       .uploadFile(file,config)
-      .then(res => setdata((arr)=>[...arr,res])).then(()=>{setload(false)}).then(()=>setFile((arr)=>arr.splice(i,1)))
+      .then(res => setdata((arr)=>[...arr,res])).then(()=>{setload(false)}).then(()=>{setFile((arr)=>arr.splice(i,1))})
       .catch(err => console.error(err))
     
        
