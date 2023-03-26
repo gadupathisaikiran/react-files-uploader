@@ -84,7 +84,11 @@ async function upload() {
 
 }
 
+useEffect(()=>{
 
+
+  
+},[File])
 
 
   return (
