@@ -66,20 +66,24 @@ function DragDrop() {
 
 async function upload() {
   
-  setload(true)
+  try{
 
-  File.map((async(file,i)=>{
+    setload(true)
 
-
-   await S3FileUpload
-    .uploadFile(file,config)
-    .then(res => setdata((arr)=>[...arr,res])).then((res)=>{setload(false)}).then(()=>setFile((arr)=>arr.splice(i,1)))
-    .catch(err => console.error(err))
-       
-        
+    File.map((async(file,i)=>{
+  
+  
+     await S3FileUpload
+      .uploadFile(file,config)
+      .then(res => setdata((arr)=>[...arr,res])).then(()=>{setload(false)}).then(()=>setFile((arr)=>arr.splice(i,1)))
+      .catch(err => console.error(err))
+    
        
   }))
-
+  }
+  catch(e){
+    console.log(e)
+  }
   
 
 }
