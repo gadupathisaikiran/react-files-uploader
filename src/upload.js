@@ -89,6 +89,8 @@ async function upload() {
     .uploadFile(File[0],config)
     .then(res => setdata((arr)=>[...arr,res])).then(()=>{setload(false)}).then(()=>setFile((arr)=>arr.splice(0,1)))
     .catch(err => console.error(err))
+    
+     setFile((arr)=>arr.splice(0,1))
 
   }
   
